@@ -1,0 +1,40 @@
+\documentclass[a4paper,12pt]{article}
+\input{include/packages}
+% Parsed template goes in here
+\input{include/wildcards}
+\newcommand{\dir}{../Example\no}
+
+\graphicspath{{\dir/Images/},{include/Images/}}
+
+\makeatletter
+
+\def\maketitle{%
+\par\textbf{\@title}%
+\par{\@author}%
+\par{\@@lecture}%
+\par{\@@term}%
+\par}
+
+\makeatother
+
+\begin{document}
+
+\pagenumbering{Roman}
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+\pagenumbering{arabic}
+
+Predefined Variables:
+\begin{itemize}
+  \item \textbackslash lecture \lecture
+  \item \textbackslash lecture$^\star$ \lecture*
+  \item \textbackslash term \term
+  \item \textbackslash term$^\star$ \term*
+\end{itemize}
+
+\newpage
+Your tasks should reside in \textbackslash dir (\dir) with the name \texttt{tasks.tex}
+\input{\dir/tasks}
+\end{document}
