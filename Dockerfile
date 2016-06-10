@@ -10,4 +10,4 @@ ADD ExampleTemplate ${dir}/ExampleTemplate
 WORKDIR ${dir}
 
 ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["pytex/PyTex.py", "-h"]
+CMD ["/pytex/PyTex.py", "-h"]
