@@ -21,13 +21,14 @@ class Docker(Thread):
         self.containerName = kwargs['containerName']
         self.folder = kwargs['folder'].replace("Template", "").strip()
         self.mounted = '%s/%s%i:/pytex/%s%i' % (getcwd(), self.folder, self.number, self.folder, self.number)
+        self.metamounted = '%s/%s:/pytex/%s' % (getcwd(), kwargs['metaCSV'], kwargs['metaCSV'])
         self.data=kwargs
         self.data['dockerized']=False
 
     def run(self):
         pytex = "echo '%s' | /pytex/PyTex.py -j" % dumps(self.data)
 
-        call(['docker', 'run', '-it', '--rm', '-v', self.mounted,  self.containerName, pytex], cwd=".")
+        call(['docker', 'run', '-it', '--rm', '-v', self.mounted, '-v', self.metamounted, self.containerName, pytex], cwd=".")
         # Fixing Permissions
         call(['sudo', 'chown', '-R', "%i:%i" % (getuid(), getgid()), "%s/%s%i" % (getcwd(), self.folder, self.number) ])
 
