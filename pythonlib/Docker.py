@@ -21,7 +21,7 @@ class Docker(Thread):
         self.containerName = kwargs['containerName']
         self.folder = kwargs['folder'].replace("Template", "").strip()
         self.mounted = '%s/%s%i:/pytex/%s%i' % (getcwd(), self.folder, self.number, self.folder, self.number)
-        self.metamounted = '%s/%s:/pytex/%s' % (getcwd(), kwargs['metaCSV'], kwargs['metaCSV'])
+        self.metamounted = '%s/%s:/pytex/%s:ro' % (getcwd(), kwargs['metaCSV'], kwargs['metaCSV'])
         self.data=kwargs
         self.data['dockerized']=False
 
