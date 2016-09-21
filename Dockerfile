@@ -1,4 +1,4 @@
-FROM unibaktr/dock-tex:python
+FROM unibaktr/latex:python
 MAINTAINER Marcel Grossmann <whatever4711@gmail.com>
 
 COPY PyTex.py ${dir}/
