@@ -58,7 +58,7 @@ class Builder():
 
     def writeDockerfile(self, templateFolder):
         lines = []
-        lines.append("FROM unibaktr/dock-tex:python")
+        lines.append("FROM unibaktr/latex:python")
         lines.append("MAINTAINER Marcel Grossmann <whatever4711@gmail.com>\n")
         lines.append("COPY PyTex.py ${dir}/")
         lines.append("ADD pythonlib ${dir}/pythonlib")
