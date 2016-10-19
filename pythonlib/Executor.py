@@ -83,7 +83,7 @@ class Executor():
 
         for line in open(kwargs['inTemplate']):
             if shortterm in line:
-                term = findall(pattern, line)[0].lower()
+                term = findall(pattern, line)[0].lower().replace('/','')
             if shortlecture in line:
                 lecture = findall(pattern, line)[0].lower()
 
