@@ -43,7 +43,7 @@ class Configurator:
 
     def cleanUp(self):
         call(['latexmk', '-C'], cwd=self.folder)
-        [remove('%s/%s' % (self.folder, f)) for f in listdir(self.folder) if f.endswith(('.gnuplot', '.table', '.nav', '.snm', '.gz'))]
+        [remove('%s/%s' % (self.folder, f)) for f in listdir(self.folder) if f.endswith(('.gnuplot', '.table', '.nav', '.snm', '.gz', '.bbl', '.nlo'))]
 
     def cpResult(self, finalName):
         finalfolder = '../%s%s/' % (self.folder.replace("Template", "").strip(), self.no)
